@@ -3,6 +3,9 @@ os:
 
 language: go
 
+go:
+    - 1.11
+
 install:
 #- body='{"request": {"branch":"wip"}}'
 #- curl -s -X POST \
@@ -16,12 +19,10 @@ install:
 script:
 - go version
 - go get -d github.com/libgit2/git2go
-- cd $GOPATH\src\github.com\libgit2\git2go
+- cd $GOPATH/src/github.com/libgit2/git2go
 - git checkout next
 - git submodule update --init
 - make install
-- go get -d github.com/splitsh/lite
-- cd $GOPATH\src\github.com\splitsh\lite
-- git checkout v1.0.1
+- go get github.com/splitsh/lite
 - go build -o splitsh-lite github.com/splitsh/lite
 - splitsh-lite --version
