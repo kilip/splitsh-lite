@@ -6,16 +6,20 @@ language: go
 go:
     - 1.11
 
+cpp: ~
+
 compiler:
   - gcc
   - clang
+  - cpp
+  - cmake
   
 install:
 - go get -d github.com/libgit2/git2go
 - cd $GOPATH/src/github.com/libgit2/git2go
 - git checkout next
 - git submodule update --init
-- go install ./...
+- make install
 - cd ${TRAVIS_BUILD_DIR}
 - go get github.com/splitsh/lite
 - go build -o splitsh-lite github.com/splitsh/lite
