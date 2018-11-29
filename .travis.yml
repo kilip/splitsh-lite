@@ -6,6 +6,10 @@ language: go
 go:
     - 1.11
 
+compiler:
+  - gcc
+  - clang
+  
 install:
 - go get -d github.com/libgit2/git2go
 - cd $GOPATH/src/github.com/libgit2/git2go
