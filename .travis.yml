@@ -7,6 +7,7 @@ go:
     - 1.11
 
 install:
+- echo "no install script"
 #- body='{"request": {"branch":"wip"}}'
 #- curl -s -X POST \
 #   -H "Content-Type: application/json" \
@@ -17,7 +18,6 @@ install:
 #   https://api.travis-ci.com/repo/kilip%2Fmonorepo/requests
 
 script:
-- go version
 - go get -d github.com/libgit2/git2go
 - cd $GOPATH/src/github.com/libgit2/git2go
 - git checkout next
